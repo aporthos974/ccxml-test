@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ccxml version="1.0" xmlns="http://www.w3.org/2002/09/ccxml">
-    <eventprocessor>
-        <transition event="connection.alerting">
-            <var name="MyVariable" expr="'This is a CCXML Variable'"/>
-            <log expr="'Hello World. I just made a variable: ' + MyVariable"/>
-            <log expr="'Lets hang up on this incoming call.'"/>
+    <!-- Lets declare our state var -->
+    <var name="state0" expr="'init'"/>
+
+    <eventprocessor statevariable="state0">
+        <!-- Process the incoming call -->
+        <transition state="init" event="connection.alerting">
+            <accept/>
+        </transition>
+        <!-- Call has been answered -->
+        <transition state="init" event="connection.connected">
+            <log expr="'Houston, we have liftoff.'"/>
             <dialogstart src="'index.vxml'"/>
+            <assign name="state0" expr="'dialogActive'" />
+
+        </transition>
+        <!-- Process the incoming call -->
+        <transition state="dialogActive" event="dialog.exit">
+            <log expr="'Houston, the dialog returned [' + event$.values.input + ']'" />
+            <exit />
+        </transition>
+        <!-- Caller hung up. Lets just go on and end the session -->
+        <transition event="connection.disconnected">
+            <exit/>
+        </transition>
+        <!-- Something went wrong. Lets go on and log some info and end the call -->
+        <transition event="error.*" >
+            <log expr="'Houston, we have a problem: (' + event$.reason + ')'"/>
             <exit/>
         </transition>
     </eventprocessor>
