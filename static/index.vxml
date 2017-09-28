@@ -3,10 +3,10 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.w3.org/2001/vxml
    http://www.w3.org/TR/voicexml20/vxml.xsd"
-      version="2.1">
+      version="2.1" xml:lang="fr-FR">
     <form>
         <block>
-            <prompt xml:lang="fr-FR">La pizza est chaude.</prompt>
+            <prompt>La pizza est chaude.</prompt>
         </block>
     </form>
 </vxml>
