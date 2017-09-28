@@ -6,7 +6,7 @@
     <eventprocessor statevariable="state0">
         <!-- Process the incoming call -->
         <transition state="init" event="connection.alerting">
-            <accept/>
+            <!--<accept/>-->
         </transition>
         <!-- Call has been answered -->
         <transition state="init" event="connection.connected">
