@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE ccxml PUBLIC "CCXML/1.0/DTD" "ccxml.dtd" >
-<ccxml version="1.0">
-
-    <var name="currentState" expr="'waitingCall'"/>
-
-    <eventprocessor statevariable="currentState">
-
-        <transition event="ccxml.alerting">
-            <log expr="'New call reception...'" />
-            <prompt>New call reception....</prompt>
+<ccxml version="1.0" xmlns="http://www.w3.org/2002/09/ccxml">
+    <eventprocessor>
+        <transition event="connection.alerting">
+            <var name="MyVariable" expr="'This is a CCXML Variable'"/>
+            <log expr="'Hello World. I just made a variable: ' + MyVariable"/>
+            <log expr="'Lets hang up on this incoming call.'"/>
+            <exit/>
         </transition>
     </eventprocessor>
 </ccxml>
