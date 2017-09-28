@@ -5,6 +5,7 @@
             <var name="MyVariable" expr="'This is a CCXML Variable'"/>
             <log expr="'Hello World. I just made a variable: ' + MyVariable"/>
             <log expr="'Lets hang up on this incoming call.'"/>
+            <dialogstart src="'index.vxml'"/>
             <exit/>
         </transition>
     </eventprocessor>
