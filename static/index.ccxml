@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ccxml PUBLIC "CCXML/1.0/DTD" "ccxml.dtd" >
+<ccxml version="1.0">
+
+    <var name="currentState" expr="'waitingCall'"/>
+
+    <eventprocessor statevariable="currentState">
+
+        <transition event="ccxml.alerting">
+            <log expr="'New call reception...'" />
+            <prompt>New call reception....</prompt>
+        </transition>
+    </eventprocessor>
+</ccxml>
