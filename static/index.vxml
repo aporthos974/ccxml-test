@@ -6,7 +6,7 @@
       version="2.1">
     <form>
         <block>
-            <prompt>La pizza est chaude.</prompt>
+            <prompt lang="fr-FR">La pizza est chaude.</prompt>
         </block>
     </form>
 </vxml>
